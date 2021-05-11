@@ -21,14 +21,13 @@ All experiments are based on the public available Dresdon dataset.
 ### Start training
 
 1. Train the classification network
-run
+- mkdir Universal
 ```bash
 $ python train train_couple_Net.py -b 128 --save_dir './Universal' --epochs 21
 ```
 The trained models will be saved in the --save_dir as checkpoint_{epoch}.tar.
 2. Noise retraining
-run
-mkdir noise_retrain
+- mkdir noise_retrain
 ```bash
 $ python noise_retrain.py --resume './Universal/checkpoint_19.tar' --save_dir './noise_retrain'
 ```
@@ -40,7 +39,7 @@ $ python attack.py --model './Universal/checkpoint_20.tar'
 $ python attack.py --model './noise_retrain/checkpoint_0.tar'
 ```
 4. Resonable adversarial attack
-mkdir Raa
+- mkdir Raa
 ```bash
 $ python train_auto_learn.py --save_dir './Raa' --epochs 15
 $ python test_auto_learn.py --resume './Raa/checkpoint_15.tar' --class_net_path './Universal/checkpoint_19.tar'
