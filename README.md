@@ -23,7 +23,7 @@ All experiments are based on the public available Dresdon dataset.
 1. Train the classification network
 - mkdir Universal
 ```bash
-$ python train train_couple_Net.py -b 128 --save_dir './Universal' --epochs 21
+$ python train_couple_Net.py -b 128 --save_dir './Universal' --epochs 21
 ```
 The trained models will be saved in the --save_dir as checkpoint_{epoch}.tar.
 2. Noise retraining
