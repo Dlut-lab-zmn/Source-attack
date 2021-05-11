@@ -1,6 +1,6 @@
 import argparse
 import time
-from dataload_copy_move import load_file_list, load_file_list2, load_test_list, load_test_list2, \
+from dataload_auto_learn import load_file_list, load_file_list2, load_test_list, load_test_list2, \
     get_batch, get_test, get_batch2, get_test2
 import torch
 import torch.nn.parallel
