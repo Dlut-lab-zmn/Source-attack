@@ -49,7 +49,7 @@ parser.add_argument('--cpu', dest='cpu', action='store_true',
                     help='use cpu')
 parser.add_argument('--save-dir', dest='save_dir',
                     help='The directory used to save the trained models',
-                    default='auto_learn_attack_vgg11_2_10_04', type=str)
+                    default='', type=str)
 
 best_prec1 = 0
 
