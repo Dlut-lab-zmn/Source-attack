@@ -23,22 +23,27 @@ All experiments are based on the public available Dresdon dataset.
 1. Train the classification network
 run
 ```bash
-$ python train train_couple_Net.py -b 128 --save_dir './Universal'
+$ python train train_couple_Net.py -b 128 --save_dir './Universal' --epochs 21
 ```
 The trained models will be saved in the --save_dir as checkpoint_{epoch}.tar.
 2. Noise retraining
 run
 mkdir noise_retrain
 ```bash
-$ python noise_retrain.py --resume './Universal/checkpoint_15.tar' --save_dir './noise_retrain'
+$ python noise_retrain.py --resume './Universal/checkpoint_19.tar' --save_dir './noise_retrain'
 ```
 The model will be saved in dir --save_dir as {str(epoch_iter)+'_'+ --dataset+'.tar'}, such checkpoint_{epoch}.tar.
 One epoch is enough for detecting adversarial examples.
-
-3. Resonable adversarial attack
+3. Evaluate the noise retrain mdethod performance
+```bash
+$ python attack.py --model './Universal/checkpoint_20.tar'
+$ python attack.py --model './noise_retrain/checkpoint_0.tar'
+```
+4. Resonable adversarial attack
 mkdir Raa
 ```bash
-$ python train_auto_learn.py --save_dir './Raa'
-$ python test_auto_learn.py --resume './Raa/checkpoint_15.tar'
+$ python train_auto_learn.py --save_dir './Raa' --epochs 15
+$ python test_auto_learn.py --resume './Raa/checkpoint_15.tar' --class_net_path './Universal/checkpoint_19.tar'
+$ python test_auto_learn.py --resume './Raa/checkpoint_15.tar' --class_net_path './noise_retrain/checkpoint_0.tar'
 ```
 
