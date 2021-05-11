@@ -1,6 +1,6 @@
 # Source-attack
 Combine the source forensic and the adversarial attack. Give a resonable attack and defensive method for this case.
-## This code is based on the paper 'Adversarial analysis for source camera identification'
+## This code is based on the paper 'Adversarial analysis for source camera identifications'
 
 It supports:
 - Multi-tasks classification model
